@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    flask:
+        build:
+            context: .
+            dockerfile: flask.dockerfile
+        #volumes:
+          #- ./lupify:/app
+          #- .:/app
+        networks:
+          - flask-network
+
+networks:
+    flask-network:
+        driver: bridge
