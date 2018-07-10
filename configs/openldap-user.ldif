@@ -1,0 +1,22 @@
+dn: ou=lupify,dc=example,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: lupify
+description: Temporary organizational unit
+
+dn: uid=myuser,ou=lupify,dc=example,dc=org
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: myuser
+uid: myuser
+uidNumber: 16859
+gidNumber: 100
+homeDirectory: /home/myuser
+loginShell: /bin/bash
+gecos: myuser
+userPassword: P@ssw0rd
+shadowLastChange: 0
+shadowMax: 0
+shadowWarning: 0

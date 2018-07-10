@@ -1,18 +1,18 @@
 version: '2'
 
 services:
-    ipa:
-        build:
-            context: freeipa-container/
-            dockerfile: Dockerfile.fedora-28
+    flask:
+        environment:
+            - LUPIFY_HTTP_PORT=8080
+            - LUPIFY_HTTPS_PORT=8443
         ports:
-          - '80:80'
-          - '443:443'
-        #volumes:
-          #- ./lupify:/app
-          #- .:/app
-        #networks:
-        #  - flask-network
-
-
-#docker run -e IPA_SERVER_IP=172.17.0.2 -p 53:53/udp -p 53:53 -p 80:80 -p 443:443 -p 389:389 -p 636:636 -p 88:88 -p 464:464 -p 88:88/udp -p 464:464/udp -p 123:123/udp -p 7389:7389 -p 9443:9443 -p 9444:9444 -p 9445:9445 --name freeipa-server-container -ti -h ipa.example.test -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /tmp -v /home/kevgus/Code/docker/freeipa-container/ipa-data:/data:Z freeipa-server
+            - '8080:8080'
+            - '8443:8443'
+    openldap:
+        build:
+            context: .
+            dockerfile: openldap.dockerfile
+        environment:
+            - LDAP_TLS_VERIFY_CLIENT=try
+        ports:
+          - '636:636'
