@@ -33,3 +33,10 @@ mongo --username mongoadmin --password secret --authenticationDatabase admin
 docker build -t lupify-image .
 docker run --name lupify -p 80:80 -p 443:443 -t -d lupify-image
 docker exec -i -t lupify /bin/bash
+
+
+docker-compose -f docker-compose.yml -f docker-compose.development.yml build
+docker-compose -f docker-compose.yml -f docker-compose.development.yml up
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
