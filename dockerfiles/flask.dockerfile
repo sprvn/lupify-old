@@ -42,7 +42,7 @@ COPY configs/supervisord.conf /etc/supervisord/supervisord.conf
 
 COPY ./lupify /lupify
 
-COPY configs/config_script.sh /tmp/
+COPY scripts/config_script.sh /tmp/
 
 EXPOSE 80
 EXPOSE 443

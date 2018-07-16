@@ -40,6 +40,13 @@ services:
         build:
             context: .
             dockerfile: dockerfiles/mongo-seed.dockerfile
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example
+            MONGO_DB: lupify_db
+            MONGO_COL: assets
+            MONGO_USER: lupify_db_user
+            MONGO_PASS: P@ssw0rd
         depends_on:
           - "mongo"
         networks:
