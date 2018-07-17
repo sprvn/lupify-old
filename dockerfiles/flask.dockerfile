@@ -20,6 +20,7 @@ RUN pip3 install flask_login
 RUN pip3 install flask_wtf
 RUN pip3 install pymongo
 RUN pip3 install uwsgi
+RUN pip3 install ConfigParser
 
 RUN yum remove python2-pip -y
 RUN yum remove python34-pip -y

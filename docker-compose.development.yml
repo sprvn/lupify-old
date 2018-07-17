@@ -3,11 +3,16 @@ version: '2'
 services:
     flask:
         environment:
-            - LUPIFY_HTTP_PORT=8080
-            - LUPIFY_HTTPS_PORT=8443
+            LUPIFY_HTTP_PORT: 8080
+            LUPIFY_HTTPS_PORT: 8443
+            LUPIFY_MONGODB_URI: mongo
+            LUPIFY_MONGODB_USER: lupify_user
+            LUPIFY_MONGODB_PASS: P@ssw0rd
         ports:
             - '8080:8080'
             - '8443:8443'
+        volumes:
+            - ./lupify:/lupify
 
     openldap:
         build:
@@ -43,9 +48,9 @@ services:
         environment:
             MONGO_INITDB_ROOT_USERNAME: root
             MONGO_INITDB_ROOT_PASSWORD: example
-            MONGO_DB: lupify_db
+            MONGO_DB: lupify
             MONGO_COL: assets
-            MONGO_USER: lupify_db_user
+            MONGO_USER: lupify_user
             MONGO_PASS: P@ssw0rd
         depends_on:
           - "mongo"
