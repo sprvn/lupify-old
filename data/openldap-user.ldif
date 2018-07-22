@@ -1,8 +1,13 @@
+# Create the OU where users are going to be stored
+
 dn: ou=lupify,dc=example,dc=org
 objectclass: top
 objectclass: organizationalUnit
 ou: lupify
 description: Temporary organizational unit
+
+
+# Create a dummy user
 
 dn: uid=myuser,ou=lupify,dc=example,dc=org
 objectClass: top
@@ -20,3 +25,21 @@ userPassword: P@ssw0rd
 shadowLastChange: 0
 shadowMax: 0
 shadowWarning: 0
+
+
+# Create the OU where groups are going to be stored
+
+dn: ou=groups,dc=example,dc=org
+objectclass: organizationalUnit
+ou: groups
+description: Generic groups branch
+
+
+# Create dummy group and add user to it
+
+dn: cn=admins,ou=groups,dc=example,dc=org
+objectclass: groupofnames
+cn: admins
+description: Administrators
+member: uid=myuser,ou=lupify,dc=example,dc=org
+#Add as many members as necessary
