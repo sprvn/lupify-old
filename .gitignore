@@ -1,9 +1,9 @@
-virtualenv/
-lupify/lupify/lupify.db
-lupify/lupify/__pycache__
-venv/
-old/
-configs/*.pem
-freeipa-container/
-lupify/__pycache__/
+/virtualenv/
+/lupify/lupify/lupify.db
+/lupify/lupify/__pycache__
+/venv/
+/old/
+/configs/*.pem
+/freeipa-container/
+/lupify/__pycache__/
 
