@@ -1,3 +1,0 @@
-docker build -t my-image .
-docker run --name my-image -t -d my-image
-docker exec -i -t 4d /bin/bash
